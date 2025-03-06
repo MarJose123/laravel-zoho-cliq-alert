@@ -15,6 +15,7 @@ class ZohoCliqAlertServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('laravel-zoho-cliq-alert');
+            ->name('laravel-zoho-cliq-alert')
+            ->hasConfigFile('cliq');
     }
 }
