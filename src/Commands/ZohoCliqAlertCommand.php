@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace MarJose123\ZohoCliqAlert\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class ZohoCliqAlertCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-zoho-cliq-alert';
 
     public $description = 'My command';
 
