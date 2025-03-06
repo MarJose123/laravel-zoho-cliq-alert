@@ -137,7 +137,8 @@ class ZohoCliqAlert
 
     public function send(): void
     {
-        $payload = [
+
+        $payload = (object) [
             'channel' => $this->channel,
             'bot' => $this->botName,
             'to' => $this->to,
