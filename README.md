@@ -35,6 +35,50 @@ return [
 ];
 ```
 
+## Usage
+
+Basic sending of message without using message card feature of Zoho Cliq.
+```php
+use MarJose123\ZohoCliqAlert\Facades\ZohoCliqAlert;
+use \MarJose123\ZohoCliqAlert\ZohoDataCenter;
+
+ZohoCliqAlert::channel('marketing')
+      ->asBot('MarketingWebsite')
+      ->dataCenter(ZohoDataCenter::US)
+      ->queue('default')
+      ->message("You have a new subscriber to the {$newsletter->name} newsletter!")
+      ->send();
+```
+
+You want to use modern card message. You can check [Zoho Cliq Message Card](https://www.zoho.com/cliq/help/restapi/v2/#Message_Cards) for more details.
+```php
+use MarJose123\ZohoCliqAlert\Facades\ZohoCliqAlert;
+use \MarJose123\ZohoCliqAlert\ZohoDataCenter;
+
+ZohoCliqAlert::channel('marketing')
+      ->asBot('MarketingWebsite')
+      ->dataCenter(ZohoDataCenter::US)
+      ->queue('default')
+      ->message("You have a new subscriber to the {$newsletter->name} newsletter!",[
+       'card' => [
+            "title" => "ANNOUNCEMENT",
+            "theme" => "modern-inline",
+            "thumbnail" => "https://www.zoho.com/cliq/help/restapi/images/announce_icon.png"
+        ],
+        'buttons' => [
+            [
+              "label" => "View",
+              "type" => "+",
+              "action" => [
+                "type" => "invoke.function",
+                "data" => [
+                  "name" => "internlist"
+                ]
+              ]
+           ]       
+       ]
+      ])->send();
+```
 
 ## Testing
 
