@@ -22,13 +22,6 @@ You can install the package via composer:
 composer require marjose123/laravel-zoho-cliq-alert
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-zoho-cliq-alert-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
@@ -42,18 +35,6 @@ return [
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-zoho-cliq-alert-views"
-```
-
-## Usage
-
-```php
-$zohoCliqAlert = new MarJose123\ZohoCliqAlert();
-echo $zohoCliqAlert->echoPhrase('Hello, MarJose123!');
-```
 
 ## Testing
 
