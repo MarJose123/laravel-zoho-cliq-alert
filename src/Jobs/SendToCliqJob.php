@@ -38,7 +38,6 @@ class SendToCliqJob implements ShouldQueue
 
     /**
      * @throws CliqAlertException
-     * @throws ConnectionException
      */
     public function handle(): void
     {
@@ -54,7 +53,12 @@ class SendToCliqJob implements ShouldQueue
             $payload = array_merge($payload, $this->cliq->embed);
         }
 
-        Http::withToken($this->getAccessToken($dataCenterOauthUrl))
-            ->post($endpoint, $payload);
+        try {
+            Http::withToken($this->getAccessToken($dataCenterOauthUrl))
+                ->post($endpoint, $payload);
+        } catch (ConnectionException $e) {
+            throw new CliqAlertException($e->getMessage());
+        }
+
     }
 }
